@@ -13,7 +13,7 @@ import rx.subscriptions.CompositeSubscription
 import java.text.DateFormat
 import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MainMvpView {
 
     private val dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM)
 
