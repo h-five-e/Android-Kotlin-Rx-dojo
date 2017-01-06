@@ -5,4 +5,6 @@
     <string name="label_revenue">Omzet:</string>
     <string name="label_profit">Winst:</string>
     <string name="no_data">Geen data</string>
+    <string name="errordialog_title">Fout</string>
+    <string name="errordialog_message">Er is iets fout gegaan. Probeer het later nog eens.</string>
 </resources>

@@ -1,5 +1,6 @@
 package nl.infi.profitmonitor.ui.main
 
+import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -100,5 +101,13 @@ class MainActivity : AppCompatActivity(), MainMvpView {
             return
         }
         textview_profit.text = StringBuilder("€ ").append(numberFormat.format(amount)).toString()
+    }
+
+    override fun showError() {
+        AlertDialog.Builder(this)
+                .setTitle(R.string.errordialog_title)
+                .setMessage(R.string.errordialog_message)
+                .setPositiveButton(android.R.string.ok, null)
+                .show()
     }
 }

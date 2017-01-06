@@ -3,6 +3,7 @@ package nl.infi.profitmonitor.ui.main
 import nl.infi.profitmonitor.service.WebService
 import nl.infi.profitmonitor.ui.BasePresenter
 import rx.Observable
+import rx.Subscriber
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 import rx.subscriptions.CompositeSubscription
@@ -21,12 +22,32 @@ class MainPresenter : BasePresenter<MainMvpView>() {
                         .observeOn(Schedulers.io())
                         .map { webService.getRevenue(it.first, it.second) }
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe { mvpView?.updateRevenue(it) },
+                        .subscribe(object : Subscriber<Float?>() {
+                            override fun onNext(t: Float?) {
+                                mvpView?.updateRevenue(t)
+                            }
+
+                            override fun onError(e: Throwable?) {
+                                mvpView?.showError()
+                            }
+
+                            override fun onCompleted() {}
+                        }),
                 dates
                         .observeOn(Schedulers.io())
                         .map { webService.getProfit(it.first, it.second) }
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe { mvpView?.updateProfit(it) }
+                        .subscribe(object : Subscriber<Float?>() {
+                            override fun onNext(t: Float?) {
+                                mvpView?.updateProfit(t)
+                            }
+
+                            override fun onError(e: Throwable?) {
+                                mvpView?.showError()
+                            }
+
+                            override fun onCompleted() {}
+                        })
         )
         revenueAndProfitSubs?.unsubscribe()
         revenueAndProfitSubs = subs
