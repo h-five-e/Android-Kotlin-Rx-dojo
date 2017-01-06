@@ -1,4 +1,4 @@
-package nl.infi.profitmonitor
+package nl.infi.profitmonitor.service
 
 import okhttp3.HttpUrl
 import okhttp3.OkHttpClient

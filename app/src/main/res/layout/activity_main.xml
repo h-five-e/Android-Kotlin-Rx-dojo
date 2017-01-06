@@ -10,7 +10,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="nl.infi.profitmonitor.MainActivity">
+    tools:context="nl.infi.profitmonitor.ui.main.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

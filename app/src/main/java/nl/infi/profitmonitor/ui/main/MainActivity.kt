@@ -1,10 +1,11 @@
-package nl.infi.profitmonitor
+package nl.infi.profitmonitor.ui.main
 
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.jakewharton.rxbinding.view.RxView
 import kotlinx.android.synthetic.main.activity_main.*
+import nl.infi.profitmonitor.R
 import rx.Observable
 import rx.Subscriber
 import rx.lang.kotlin.add
