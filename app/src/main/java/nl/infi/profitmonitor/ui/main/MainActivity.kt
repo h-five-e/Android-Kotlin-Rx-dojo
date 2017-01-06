@@ -26,13 +26,17 @@ class MainActivity : AppCompatActivity(), MainMvpView {
         setContentView(R.layout.activity_main)
         presenter.attachView(this)
 
+        val startDateObservable = RxView.clicks(button_start_date).flatMap { getDate() }.share()
+        val endDateObservable = RxView.clicks(button_end_date).flatMap { getDate() }.share()
+        presenter.observeDates(startDateObservable, endDateObservable)
+
         val sub = CompositeSubscription()
 
-        sub.add(RxView.clicks(button_start_date).flatMap { getDate() }.subscribe {
+        sub.add(startDateObservable.subscribe {
             textview_start_date.text = dateFormat.format(it)
         })
 
-        sub.add(RxView.clicks(button_end_date).flatMap { getDate() }.subscribe {
+        sub.add(endDateObservable.subscribe {
             textview_end_date.text = dateFormat.format(it)
         })
 
