@@ -4,4 +4,5 @@
     <string name="date_end">Einddatum</string>
     <string name="label_revenue">Omzet:</string>
     <string name="label_profit">Winst:</string>
+    <string name="no_data">Geen data</string>
 </resources>

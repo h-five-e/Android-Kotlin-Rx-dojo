@@ -11,15 +11,23 @@ import rx.Subscriber
 import rx.lang.kotlin.add
 import rx.subscriptions.CompositeSubscription
 import java.text.DateFormat
+import java.text.NumberFormat
 import java.util.*
 
 class MainActivity : AppCompatActivity(), MainMvpView {
 
     private val dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM)
+    private val numberFormat = NumberFormat.getInstance()
 
     private val presenter = MainPresenter()
 
     private var liveCycleSubscriptions: CompositeSubscription? = null
+
+    init {
+        numberFormat.minimumIntegerDigits = 1
+        numberFormat.minimumFractionDigits = 2
+        numberFormat.maximumFractionDigits = 2
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,5 +84,21 @@ class MainActivity : AppCompatActivity(), MainMvpView {
             subscriber.add { dialog.dismiss() }
             dialog.show()
         }
+    }
+
+    override fun updateRevenue(amount: Float?) {
+        if (amount == null) {
+            textview_revenue.text = getString(R.string.no_data)
+            return
+        }
+        textview_revenue.text = StringBuilder("€ ").append(numberFormat.format(amount)).toString()
+    }
+
+    override fun updateProfit(amount: Float?) {
+        if (amount == null) {
+            textview_profit.text = getString(R.string.no_data)
+            return
+        }
+        textview_profit.text = StringBuilder("€ ").append(numberFormat.format(amount)).toString()
     }
 }
