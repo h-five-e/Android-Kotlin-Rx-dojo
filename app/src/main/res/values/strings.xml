@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Infi Profit Monitor</string>
+    <string name="date_start">Startdatum</string>
+    <string name="date_end">Einddatum</string>
+    <string name="label_revenue">Omzet:</string>
+    <string name="label_profit">Winst:</string>
 </resources>
