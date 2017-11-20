@@ -12,6 +12,7 @@ Er is geen api-call om een lijst van je collega's te halen, dus hieronder vind j
     val employees = arrayOf(
         Employee(96, "Anna"),
         Employee(98, "Aziz"),
+        Employee(100, "Barend"),
         Employee(29, "Corné"),
         Employee(69, "Daniël"),
         Employee(4, "Daniel"),
@@ -21,10 +22,8 @@ Er is geen api-call om een lijst van je collega's te halen, dus hieronder vind j
         Employee(36, "Ely"),
         Employee(85, "Erik"),
         Employee(45, "Freek"),
-        Employee(82, "Henri"),
         Employee(50, "Jacco"),
         Employee(95, "Jeroen"),
-        Employee(41, "Jiri"),
         Employee(43, "Jiska"),
         Employee(99, "Joost"),
         Employee(40, "Jorik"),
@@ -37,9 +36,9 @@ Er is geen api-call om een lijst van je collega's te halen, dus hieronder vind j
         Employee(48, "Sander"),
         Employee(37, "Stefan"),
         Employee(86, "Steven"),
+        Employee(101, "Susan"),
         Employee(90, "Susanne"),
-        Employee(68, "Wolf"),
-        Employee(94, "Wouter")
+        Employee(68, "Wolf")
     )
 ```
 
